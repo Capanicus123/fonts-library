@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topbox"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--  -->
+    <!--android:background="#e9e9e9"-->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center|bottom"
+    android:layout_alignParentBottom="true"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/m_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        >
+
+        <com.example.mukesh.fonts_library.MyCustomButton
+            android:id="@+id/btnCamera"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="CAMERA"
+            android:textSize="20sp"
+            android:textColor="@color/app_yellow"
+            android:background="@drawable/rounded_camera"
+            android:visibility="visible"
+             />
+
+       <!-- <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e9e9e9"
+            />-->
+
+        <com.example.mukesh.fonts_library.MyCustomButton
+            android:id="@+id/btnGallery"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="GALLERY"
+            android:textSize="20sp"
+            android:textColor="@color/app_yellow"
+            android:background="@drawable/rounded_gallery"
+
+             />
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        >
+
+        <com.example.mukesh.fonts_library.MyCustomButton
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="Cancel"
+            android:background="@drawable/rounded_image_choose"
+            android:textSize="20sp"
+            android:textColor="@color/app_yellow"
+
+
+            />
+
+     </LinearLayout>
+</LinearLayout>
+</RelativeLayout>

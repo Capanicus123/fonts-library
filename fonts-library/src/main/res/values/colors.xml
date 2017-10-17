@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+		Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+		Copyright (C) 2007-2008 Esmertec AG.
+	 	Copyright (C) 2007-2008 The Android Open Source Project
+
+		This file is part of CSipSimple. CSipSimple is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version.
+
+		CSipSimple is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with CSipSimple. If not,
+		see <http://www.gnu.org/licenses/>.
+--><!-- 	Parts of this file are extract from the android project distributed under Apache license relicensed in GPLv3 -->
+<resources>
+
+
+    <!-- the background color used for unread conversation -->
+
+
+    <color name="app_yellow">#c29508</color>
+    <color name="app_lines">#373a41</color>
+    <color name="app_lines2">#686b70</color>
+    <color name="app_background">#12151f</color>
+    <color name="white">#ffffff</color>
+    <color name="light_yellow">#dfd09f</color>
+    <color name="transparent">#00000000</color>
+    <color name="app_transparent">#8c06070b</color>
+    <color name="app_lay">#181b25</color>
+    <color name="sparkle">#f0eff4c1</color>
+    <color name="light_yellow2">#f6d989</color>
+    <color name="app_linesgrey">#9a9da1</color>
+    <color name="app_linesnew">#2d3036</color>
+
+
+
+</resources>

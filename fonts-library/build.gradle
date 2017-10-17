@@ -1,11 +1,37 @@
 apply plugin: 'com.android.library'
+/*// change all of these as necessary
+ext {
+    bintrayRepo = 'fonts-library' // this is the same as whatever you called your repository in Bintray
+    bintrayName = 'com.example.mukesh.fonts_library' // your bintray package name. I am calling it the same as my library name.
 
+    publishedGroupId = 'com.mukesh'
+    libraryName = 'fonts-library'
+    artifact = 'fonts-library' // I'm calling it the same as my library name
+
+    libraryDescription = 'An example library to make your programming life easy'
+
+    siteUrl = 'https://github.com/Capanicus123/fonts-library'
+    gitUrl = 'https://github.com/Capanicus123/fonts-library.git'
+
+    libraryVersion = '1.0.6'
+
+    developerId = 'Capanicus123' // Maven plugin uses this. I don't know if it needs to be anything special.
+    developerName = 'Capanicus'
+    developerEmail = 'tech.capanicus@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+// This next section is your normal gradle settings
+// There is nothing special that you need to change here
+// related to Bintray. Keep scrolling down.*/
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 9
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -19,6 +45,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -29,3 +58,111 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }
+/*// Maven section
+// You shouldn't need to change anything. It just uses the
+// values you set above.
+apply plugin: 'com.github.dcendents.android-maven'
+group = publishedGroupId // Maven Group ID for the artifact
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
+
+                // Add your description here
+                name libraryName
+                description libraryDescription
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+// Bintray section
+// As long as you add bintray.user and bintray.apikey to the local.properties
+// file, you shouldn't have to change anything here. The reason you
+// don't just write them here is so that they won't be publicly visible
+// in GitHub or wherever your source control is.
+
+apply plugin: 'com.jfrog.bintray'
+
+version = libraryVersion
+
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    task javadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty('bintray.user')
+    key = properties.getProperty('bintray.apikey')
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+            gpg {
+                // optional GPG encryption. Default is false.
+                sign = false
+                //passphrase = properties.getProperty("bintray.gpg.password")
+            }
+        }
+    }
+}*/
+apply from: 'bintrayUpload.gradle'
